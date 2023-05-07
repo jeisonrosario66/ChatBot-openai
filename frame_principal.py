@@ -1,3 +1,6 @@
+""" 
+Bloque: Vista principal
+"""
 #---------------- Ventanas HD (Si es posible) -------------------
 try:
     from ctypes import windll
@@ -7,22 +10,21 @@ except:
 
 import tkinter as tk
 import customtkinter
-from tkinter import messagebox, filedialog, Menu
-from vistas.frame1 import Frame_1
-from vistas.frame2 import Frame_2
+from tkinter import messagebox, Menu
+from frame1 import Frame_1
+from frame2 import Frame_2
 
 
 #  ------------Custon Tkinter (apariencia)-------------------
-#customtkinter.set_appearance_mode("system")  # default value
+customtkinter.set_appearance_mode("system")  # default value
 #customtkinter.set_appearance_mode("dark")
-customtkinter.set_appearance_mode("light")
+#customtkinter.set_appearance_mode("light")
 
 #customtkinter.set_default_color_theme("blue")
-#customtkinter.set_default_color_theme("dark-blue")
+customtkinter.set_default_color_theme("dark-blue")
 #customtkinter.set_default_color_theme("sweetkind")
-customtkinter.set_default_color_theme("green")
+#customtkinter.set_default_color_theme("green")
 
-#Variable global
 #-------------------Clase Principal -----------------------------
 class APP(tk.Tk):
     def __init__(self,*args,**kwargs):

@@ -1,12 +1,16 @@
+""" 
+Bloque: Vista segunda pantalla
+"""
 import tkinter as tk
 import customtkinter
-from tkinter import Scrollbar
-
+from controladores import Controlador
 
 class Frame_2(tk.Frame):
     def __init__(self, container,controller,*args, **kwargs):
         super().__init__(container, *args, **kwargs)
         
+        # instansia
+        self.controlador = Controlador("Humano")
         #----------------------- Variables locales-------------------------
         # dimenciones de pantalla
         self.width = self.winfo_screenwidth()
@@ -24,7 +28,7 @@ class Frame_2(tk.Frame):
         frame.grid(pady=15, padx=10)
 
         # --------------------- text area --------------------------
-        frameTextArea = customtkinter.CTkScrollableFrame(master=frame, 
+        frameTextArea = customtkinter.CTkTextbox(master=frame, 
                                                border_width=1,
                                                border_color=self.border_color, 
                                                width=self.widthFrames, height=self.height, 
@@ -43,5 +47,7 @@ class Frame_2(tk.Frame):
         frameInput.grid(column=0, row=1, pady=(0,6))
         
         button = customtkinter.CTkButton(master=frame,
-                                         text="Enviar")
+                                         text="Enviar",
+                                         command= lambda:self.controlador.send(frameInput,frameTextArea))
         button.grid(column=0, row=2, pady=(0,6))
+        
